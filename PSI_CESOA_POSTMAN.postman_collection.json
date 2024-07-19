@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "ffdb5886-6c33-42e1-959d-91509131330c",
+		"name": "PSI_CESOA_POSTMAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2315653"
+	},
+	"item": [
+		{
+			"name": "SimulaHAB_SERVICO_C#NET",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"valorEmprestimo\": 50000,\r\n\"prazoTotal\": 120,\r\n\"taxaJuros\": 1.2,\r\n\"tabelaJuros\": \"prIce\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6201/api/SimuladorHabtacional/simular",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6201",
+					"path": [
+						"api",
+						"SimuladorHabtacional",
+						"simular"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JavaQuarkus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"valorEmprestimo\": 500000,\r\n\"prazoTotal\": 120,\r\n\"taxaJuros\": 11.2,\r\n\"tipoAmortizacao\": \"PRICE\",\r\n\"numeroPrestacao\": null,\r\n\"dataReferencia\" : \"11/2024\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/emprestimo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"emprestimo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
