@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  simulador:
+    build:
+      context: .
+      dockerfile: CesoaPsiPt.Simulador/Dockerfile
+    image: cesoapsiptsimulador:latest
+    ports:
+      - "6200:6200"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:6200
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cesoapsiptweb:latest
+    ports:
+      - "5200:5200"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5200

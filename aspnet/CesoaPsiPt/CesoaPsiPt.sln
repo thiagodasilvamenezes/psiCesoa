@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroFrontEnd", "MicroFrontEnd", "{3C480A17-AA54-4E69-98F8-EEE8977C4E95}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices", "MicroServices", "{3A74000B-DF2A-4DDD-9D97-412A628533BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CesoaPsiPt.Simulador", "CesoaPsiPt.Simulador\CesoaPsiPt.Simulador.csproj", "{FB679611-A03A-43B7-A175-B47ECA78AB87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CesoaPsiPt.MicroFront.Simulacao", "CesoaPsiPt.MicroFront.Simulacao\CesoaPsiPt.MicroFront.Simulacao.csproj", "{0BF3032A-63E6-453F-8C0A-9D092972ED89}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CesoaPsiPt.FrontEnd.HOST", "CesoaPsiPt.FrontEnd.HOST\CesoaPsiPt.FrontEnd.HOST.csproj", "{EA3CBC3B-F976-4B2B-9BA3-C5F12C8C2482}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB679611-A03A-43B7-A175-B47ECA78AB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB679611-A03A-43B7-A175-B47ECA78AB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB679611-A03A-43B7-A175-B47ECA78AB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB679611-A03A-43B7-A175-B47ECA78AB87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF3032A-63E6-453F-8C0A-9D092972ED89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF3032A-63E6-453F-8C0A-9D092972ED89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF3032A-63E6-453F-8C0A-9D092972ED89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF3032A-63E6-453F-8C0A-9D092972ED89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA3CBC3B-F976-4B2B-9BA3-C5F12C8C2482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3CBC3B-F976-4B2B-9BA3-C5F12C8C2482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA3CBC3B-F976-4B2B-9BA3-C5F12C8C2482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA3CBC3B-F976-4B2B-9BA3-C5F12C8C2482}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB679611-A03A-43B7-A175-B47ECA78AB87} = {3A74000B-DF2A-4DDD-9D97-412A628533BC}
+		{0BF3032A-63E6-453F-8C0A-9D092972ED89} = {3C480A17-AA54-4E69-98F8-EEE8977C4E95}
+		{EA3CBC3B-F976-4B2B-9BA3-C5F12C8C2482} = {3C480A17-AA54-4E69-98F8-EEE8977C4E95}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C057B3BC-D20B-4815-8C6D-7FD1E3642B4E}
+	EndGlobalSection
+EndGlobal

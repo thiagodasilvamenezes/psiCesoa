@@ -1,0 +1,20 @@
+﻿/* Estilos para o formulário de Simulação Habitacional */
+.form-simulacao-habitacional div {
+    margin-bottom: 16px; /* Espaçamento entre campos */
+}
+
+.form-simulacao-habitacional input,
+.form-simulacao-habitacional select {
+    width: 100%; /* Largura completa para ocupar o espaço do container */
+    padding: 8px; /* Padding para melhor visualização e interação */
+    box-sizing: border-box; /* Inclui padding e border no cálculo de largura */
+}
+
+.form-simulacao-habitacional button {
+    padding: 10px 20px; /* Padding adequado para o botão */
+    margin-top: 20px; /* Espaço antes do botão */
+    width: auto; /* Auto ajuste da largura baseado no conteúdo interno */
+    cursor: pointer; /* Indicar que o botão é clicável */
+}
+body {
+}

@@ -1,0 +1,95 @@
+﻿@page "/SimulacaoEmprestimo"
+@using CesoaPsiPt.MicroFront.Simulacao.Data
+@using Microsoft.AspNetCore.Components.Forms
+@inject SimulacaoHabitacionalService SimulacaoHabitacionalService
+
+
+<h3>Simulação Habitacional</h3>
+
+<EditForm Model="@simulacaoRequest" OnValidSubmit="HandleValidSubmit" class="form-simulacao-habitacional">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="valorEmprestimo">Valor do Empréstimo:</label>
+        <InputNumber id="valorEmprestimo" @bind-Value="simulacaoRequest.ValorEmprestimo" placeholder="Valor do Empréstimo" />
+    </div>
+    <div class="form-group">
+        <label for="taxaJuros">Taxa de Juros (%):</label>
+        <InputNumber id="taxaJuros" @bind-Value="simulacaoRequest.TaxaJuros" placeholder="Taxa de Juros (%)" />
+    </div>
+    <div class="form-group">
+        <label for="prazoTotal">Período (meses):</label>
+        <InputNumber id="prazoTotal" @bind-Value="simulacaoRequest.PrazoTotal" placeholder="Período (meses)" />
+    </div>
+    <div class="form-group">
+        <label for="tabelaJuros">Tabela de Juros:</label>
+        <InputSelect id="tabelaJuros" @bind-Value="simulacaoRequest.TabelaJuros">
+            <option value="">Escolher Tabela de Juros </option>
+            <option value="PRICE">PRICE</option>
+            <option value="SAC">SAC</option>
+            <option value="SAM">SAM</option>
+        </InputSelect>
+    </div>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @errorMessage
+        </div>
+    }
+    <div class="form-group">
+        <label></label> <!-- Label vazio para alinhamento -->
+        <button type="submit" class="btn-simular">Simular</button>
+    </div>
+</EditForm>
+
+@if (simulacaoHabitacional?.Prestacoes != null)
+{
+    <h4>Resultado:</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Prestação</th>
+                <th>Valor da Prestação</th>
+                <th>Juros</th>
+                <th>Amortização</th>
+                <th>Saldo Devedor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var parcela in simulacaoHabitacional.Prestacoes)
+            {
+                <tr>
+                    <td>@parcela.NumeroPrestacao</td>
+                    <td>R$ @parcela.ValorPrestacao.ToString("N2")</td>
+                    <td>R$ @parcela.ValorJuros.ToString("N2")</td>
+                    <td>R$ @parcela.ValorAmortizacao.ToString("N2")</td>
+                    <td>R$ @parcela.SaldoDevedor.ToString("N2")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private SimulacaoRequest simulacaoRequest = new SimulacaoRequest();
+    private SimulacaoHabitacional simulacaoHabitacional;
+    private string errorMessage = string.Empty;
+
+    private async Task HandleValidSubmit()
+    {
+
+        try
+        {
+            simulacaoHabitacional = await SimulacaoHabitacionalService.SimularEmprestimo(simulacaoRequest);
+            if (simulacaoHabitacional == null)
+            {
+                errorMessage = "O serviço não respondeu. Verifique se o microServiço de simulação esta em execução.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Erro ao processar a simulação: {ex.Message}";
+        }
+    }
+}
